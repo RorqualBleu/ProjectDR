@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.server.mapper.AqiMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.example.server.pojo.Aqi">
+        <id column="aqi_id" property="aqiId" />
+        <result column="chinese_explain" property="chineseExplain" />
+        <result column="aqi_explain" property="aqiExplain" />
+        <result column="color" property="color" />
+        <result column="health_impact" property="healthImpact" />
+        <result column="take_steps" property="takeSteps" />
+        <result column="so2_min" property="so2Min" />
+        <result column="so2_max" property="so2Max" />
+        <result column="co_min" property="coMin" />
+        <result column="co_max" property="coMax" />
+        <result column="spm_min" property="spmMin" />
+        <result column="spm_max" property="spmMax" />
+        <result column="remarks" property="remarks" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        aqi_id, chinese_explain, aqi_explain, color, health_impact, take_steps, so2_min, so2_max, co_min, co_max, spm_min, spm_max, remarks
+    </sql>
+
+</mapper>

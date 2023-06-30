@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.server.mapper.StatisticsMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.example.server.pojo.Statistics">
+        <id column="id" property="id" />
+        <result column="province_id" property="provinceId" />
+        <result column="city_id" property="cityId" />
+        <result column="address" property="address" />
+        <result column="so2_value" property="so2Value" />
+        <result column="so2_level" property="so2Level" />
+        <result column="co_value" property="coValue" />
+        <result column="co_level" property="coLevel" />
+        <result column="spm_value" property="spmValue" />
+        <result column="spm_level" property="spmLevel" />
+        <result column="aqi_id" property="aqiId" />
+        <result column="confirm_date" property="confirmDate" />
+        <result column="confirm_time" property="confirmTime" />
+        <result column="gm_id" property="gmId" />
+        <result column="fd_id" property="fdId" />
+        <result column="information" property="information" />
+        <result column="remarks" property="remarks" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, province_id, city_id, address, so2_value, so2_level, co_value, co_level, spm_value, spm_level, aqi_id, confirm_date, confirm_time, gm_id, fd_id, information, remarks
+    </sql>
+
+    <select id="listAqiTrendTotalStatis" parameterType="AqiTrendTotalStatisDto" resultType="AqiTrendTotalStatisDto">
+        <foreach collection="list" item="dto" open="" close="" separator="union all">
+            select #{dto.month} month,
+            count(*) total
+            from statistics
+            where left(confirm_date,7)=#{dto.month} and aqi_id>2
+        </foreach>
+    </select>
+</mapper>

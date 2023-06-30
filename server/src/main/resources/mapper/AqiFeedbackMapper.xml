@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.server.mapper.AqiFeedbackMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.example.server.pojo.AqiFeedback">
+        <id column="af_id" property="afId" />
+        <result column="tel_id" property="telId" />
+        <result column="province_id" property="provinceId" />
+        <result column="city_id" property="cityId" />
+        <result column="address" property="address" />
+        <result column="information" property="information" />
+        <result column="estimated_grade" property="estimatedGrade" />
+        <result column="af_date" property="afDate" />
+        <result column="af_time" property="afTime" />
+        <result column="gm_id" property="gmId" />
+        <result column="assign_date" property="assignDate" />
+        <result column="assign_time" property="assignTime" />
+        <result column="state" property="state" />
+        <result column="remarks" property="remarks" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        af_id, tel_id, province_id, city_id, address, information, estimated_grade, af_date, af_time, gm_id, assign_date, assign_time, state, remarks
+    </sql>
+
+</mapper>

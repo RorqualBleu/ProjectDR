@@ -1,0 +1,29 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/environment?characterEncoding=UTF8&autoReconnect=true&serverTimezone=Asia/Shanghai&allowMultiQueries=true
+    username: root
+    password: 123456
+    # 开启驼峰命名法和下划线命名法之间的自动转换
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+
+mybatis-plus:
+  global-config:
+    db-config:
+      id-type: auto #表示 ID 自增类型，设置为 auto 可以让 MyBatis-Plus 自动判断使用哪种自增方式
+  mapper-locations: classpath:mapper/*Mapper.xml #表示 Mapper XML 文件的位置
+  type-aliases-package: com.example.server.pojo  #表示实体类的包路径
+  configuration:
+    # 使用驼峰命名规则
+    map-underscore-to-camel-case: true
+    # 配置分页插件
+    plugins:
+      - com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor
+
+
+logging:
+  level:
+    com.example.server.mapper: trace
+server:
+  port: 8084
